@@ -100,6 +100,50 @@ def knapsack_value_max_so(W: int, weights: list[int],values: list[int], n) -> in
     return V(W)[1]
 
 
+def kp(weights, values, maxweight):
+
+
+    """
+
+    Backtracking to get the indices of the items providing the solution
+
+    """
+
+    n = len(weights)
+
+    V = [[0]*(n+1) for _ in range(maxweight+1)]
+
+    for i in range(1,n+1):
+
+        for c in range(maxweight+1):
+
+            w = weights[i-1]
+            v = values[i-1]
+
+            if c>=w:
+                V[c][i] = max(V[c-w][i-1]+v, V[c][i-1])
+            else:
+                V[c][i] = V[c][i-1]
+
+
+    # Get the indices that produce the solution
+
+    c = maxweight
+    i = n
+    indices = []
+    while i>0 and c>0:
+
+        if V[c][i] != V[c][i-1]:
+            indices.append(i-1)
+            c -= weights[i-1]
+        i -= 1
+
+
+    return V[maxweight][n] , indices
+
+
+
+
 """
 
 How to solve the problem : 
