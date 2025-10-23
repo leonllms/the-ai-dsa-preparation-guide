@@ -141,8 +141,8 @@ Implement the Knuth‑Morris‑Pratt (KMP) algorithm to find all occurrences of 
 
 ## 19. String Processing – Longest Common Subsequence (LCS)
 
-**Problem – LCS Length**  
-Given two strings `A` and `B`, compute the length of their longest common subsequence.  
+**Problem – LCA Length**  
+Given two strings `A` and `B`, compute the length of their longest common subarray.  
 
 ---
 
