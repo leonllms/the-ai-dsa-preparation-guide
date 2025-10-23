@@ -223,6 +223,24 @@ Given a stream of unknown length, design an algorithm that, after reading the st
 
 ---
 
+## 31. Dynamic Programming – Edit Distance
+
+**Problem – Minimum Edit (Levenshtein) Distance**  
+Given two strings `A` (length `m`) and `B` (length `n`), compute the minimum number of single‑character operations required to transform `A` into `B`. The allowed operations are  
+
+* **Insert** a character  
+* **Delete** a character  
+* **Replace** a character  
+
+Each operation has a cost of 1. Return the minimum total cost (the edit distance).  
+
+*Typical constraints:* `0 ≤ m, n ≤ 10⁴` (or larger for a challenge).  
+
+*Expected complexity:* `O(m·n)` time and `O(min(m,n))` or `O(m·n)` space using the classic DP formulation.
+
+---
+
+
 ### How to Use These Exercises
 
 1. **Pick a topic** – start with the area you’re weakest in.  
@@ -232,3 +250,6 @@ Given a stream of unknown length, design an algorithm that, after reading the st
 5. **Iterate** – once comfortable, try to improve the solution (e.g., replace a naïve \(O(n^2)\) approach with an \(O(n \log n)\) one).  
 
 Happy coding! 🚀
+
+
+
