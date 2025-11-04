@@ -101,8 +101,8 @@ class prefix_node:
 
 class prefix_tree:
 
-    def __init__(self, root: prefix_node = prefix_node(None)):
-        self.root = root 
+    def __init__(self, root: prefix_node | None = None):
+        self.root = root if root is not None else prefix_node(None)
 
     def _advance_to_prefix_end(self, query: str) -> Tuple[int | None, prefix_node | None]:
         """
