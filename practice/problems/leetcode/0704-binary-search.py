@@ -59,40 +59,18 @@ def bin_search(arr : list[int], target: int) -> int :
 
     # if the array is even , make it odd by checking the last element for the target.
 
-    
-    if n%2 == 0 :
-        if arr[j] == target:
-            return j
-        else:
-            j-=1
-
-
-
-    def termination(i,j):
-        
-        if i>j:
-            return True
-
-
-    while not termination(i,j):
-
+    while not i>j:
 
         n = j-i+1
         n = i+n//2
-
-
-        # we guarantee n to always be odd
 
         if arr[n] == target:
             return n
 
         elif arr[n] > target:
-                j = n-1 # guarantee oddness
+                j = n-1
         else:
-                i = n+1 # guarantee oddness
+                i = n+1
 
     return -1
-
-
-# Check if there are any errors , don't suggest improvements or judge the efficiency of the algorithm , this is a naive solution, be very brief.
 
