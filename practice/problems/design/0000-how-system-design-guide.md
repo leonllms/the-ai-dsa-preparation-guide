@@ -1,5 +1,72 @@
 # Writing a system design document
+
+## Short version
+
+It is better to start with this scaled down version of the document.
+
+
+**System‑Design Document – What to Include and How to Write It**
+
+---
+
+## 1. System Analysis
+
+### a. Problem Statement
+- Brief description of the business problem or user need.
+- Success criteria (latency, throughput, availability, cost, etc.).
+
+### b. Scope & Assumptions
+- Key assumptions (traffic volume, data size, deployment environment, third‑party services).
+- In‑scope vs. out‑of‑scope.
+
+## 2. Functional Design
+
+
+**High‑Level Architecture**
+- Overview of major components (client, API gateway, services, databases, cache, message bus, etc.).
+
+```
+Client -> Load Balancer -> API Gateway -> Service A
+                                   -> Service B -> DB
+                                   -> Service C -> Cache
+```
+
+**Data flow**
+- Data flow (write path, read path, eventual consistency points).
+- Important indexes and access patterns.
+
+**Component Details** For each major component include:
+
+- **Purpose** – what it does.
+- **Key responsibilities** – CRUD, business logic, etc.
+
+## 3. Non-functional Considerations
+
+### a. Scalability & Performance
+- Horizontal scaling strategy (stateless services, sharding, partition keys).
+- Caching layers (in‑memory, CDN) and cache‑invalidation approach.
+- Bottleneck identification and mitigation (back‑pressure, rate limiting).
+- Tradeoffs and alternatives 
+
+### b. Reliability & Fault Tolerance
+- Redundancy (multi‑AZ, multi‑region).
+- Failure handling (retries, circuit breakers, fallback).
+- Data durability (replication factor, backup schedule).
+
+### c. Risks and Variables
+
+- Potential risks
+- Moving parts
+- Mitigation plans
+
+### 4. Summary
+
+- Summarize shortly main design choices and trade-offs
+
+
+---
  
+
 ## Long Version
 
 **System‑Design Document – What to Include and How to Write It**
@@ -87,62 +154,3 @@ For each major component include:
 
 Following this structure ensures the document conveys the full design while staying readable in plain‑text format.
 
-
-## Short version
-
-It is better to start with this scaled down version of the document.
-
-
-**System‑Design Document – What to Include and How to Write It**
-
----
-
-
-### 2. Problem Statement
-- Brief description of the business problem or user need.
-- Success criteria (latency, throughput, availability, cost, etc.).
-
-### 3. Scope & Assumptions
-- What is in‑scope vs. out‑of‑scope.
-- Key assumptions (traffic volume, data size, deployment environment, third‑party services).
-
-### 4. High‑Level Architecture
-- Overview of major components (client, API gateway, services, databases, cache, message bus, etc.).
-- Use simple ASCII diagrams if graphics are not allowed, e.g.:
-
-```
-Client -> Load Balancer -> API Gateway -> Service A
-                                   -> Service B -> DB
-                                   -> Service C -> Cache
-```
-
-**Component Details** For each major component include:
-
-- **Purpose** – what it does.
-- **Key responsibilities** – CRUD, business logic, etc.
-
-### 6. Data Model
-- Data flow (write path, read path, eventual consistency points).
-- Important indexes and access patterns.
-
-### 7. Scalability & Performance
-- Load estimates (RPS, concurrent users, data volume).
-- Horizontal scaling strategy (stateless services, sharding, partition keys).
-- Caching layers (in‑memory, CDN) and cache‑invalidation approach.
-- Bottleneck identification and mitigation (back‑pressure, rate limiting).
-
-### 8. Reliability & Fault Tolerance
-- Redundancy (multi‑AZ, multi‑region).
-- Failure handling (retries, circuit breakers, fallback).
-- Data durability (replication factor, backup schedule).
-
-### 10. Trade‑offs & Alternatives
-- List major design choices (e.g., SQL vs NoSQL, synchronous vs async).
-- Pros/cons, why the chosen option fits the requirements.
-
-### 12. Open Questions & Risks
-- Items needing clarification.
-- Potential risks and mitigation plans.
-
-
----
