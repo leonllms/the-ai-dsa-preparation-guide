@@ -185,3 +185,35 @@ def wildcard_match(inputstr, pattern):
     return dynamic_program(start, term, comb, deps)
 
 ```
+
+# Raw optimized
+
+Uses O(n) space 
+
+```python
+def wildcard_match(s, p):
+    n, m = len(s), len(p)
+
+    # prev[j] = dp[0][j]  (empty string vs pattern prefix)
+    prev = [False] * (m + 1)
+    prev[0] = True                     # empty pattern matches empty string
+    for j in range(1, m + 1):          # only '*' can keep it True
+        prev[j] = prev[j - 1] and p[j - 1] == '*'
+
+    for i in range(1, n + 1):
+        curr = [False] * (m + 1)
+        # dp[i][0] stays False because a non‑empty string cannot match an empty pattern
+        for j in range(1, m + 1):
+            if p[j - 1] == '*':
+                # * matches empty (dp[i][j‑1]) or one more char (dp[i‑1][j])
+                curr[j] = curr[j - 1] or prev[j]
+            elif p[j - 1] == '?' or p[j - 1] == s[i - 1]:
+                # ordinary match uses diagonal value
+                curr[j] = prev[j - 1]
+            else:
+                curr[j] = False
+        prev = curr
+
+    return prev[m]
+```
+
