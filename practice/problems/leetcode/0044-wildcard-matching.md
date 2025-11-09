@@ -185,6 +185,3 @@ def wildcard_match(inputstr, pattern):
     return dynamic_program(start, term, comb, deps)
 
 ```
-
-Write the program above in C++.
-
