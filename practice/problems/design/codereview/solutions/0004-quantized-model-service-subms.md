@@ -30,9 +30,6 @@ async def generate(text: str):
 
 **(Clears throat, smiles, and adopts a collaborative and engaged tone)**
 
-Thanks for this problem. It’s a fantastic and highly relevant challenge that cuts right to the heart of performant LLM serving. The constraints are ambitious, especially "sub-millisecond latency," which I'll touch on in a moment.
-
-First, I'll quickly review the provided code snippet, then I'll outline my proposed architecture and dive into the specific technical choices to meet the requirements.
 
 ### 1. Critique of the Initial Code
 
